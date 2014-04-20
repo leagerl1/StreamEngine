@@ -5,9 +5,22 @@
 		}
 	</style>
 	<head>
-		<title>StreamEngine-Text your Tracks!</title>
+		<title>StreamEngine</title>
 	</head>
 	<body>
+		<script>
+			function toggle_play(){
+				if(document.getElementById("changer").src == "http://127.0.0.1:5000/static/img/pause2.png"){
+     				document.getElementById("changer").src = "http://127.0.0.1:5000/static/img/play2.png";
+    			}
+    			else{
+      				document.getElementById("changer").src = "http://127.0.0.1:5000/static/img/pause2.png";
+    			}
+    		}
+		</script>
 		<h1>Welcome to StreamEngine!</h1>
+		<a href="#" onClick="play_previous()"><img src="../static/img/previous2.png"/></a>
+  		<a href="#" onClick="toggle_play()" class="play"><img src="../static/img/pause2.png" id="changer"/></a>
+ 		<a href="#" onClick="play_next()"><img src="../static/img/next2.png" /></a>
 	</body>
 </html>
