@@ -4,10 +4,14 @@ import twilio.twiml
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET','POST'])
-def index():
+@app.route('/_responder', methods=['GET','POST'])
+def responder():
     resp = twilio.twiml.Response()
     resp.message("Hello, Mobile Monkey")
+    return str(resp)
+
+@app.route('/')
+def index():
     return render_template('index.html')
 
 if __name__ == "__main__":
