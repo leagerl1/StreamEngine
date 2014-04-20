@@ -11,7 +11,7 @@ def responder():
     auth_token = "8d29d5cc81e4062e1521237983c39b21"
     client = TwilioRestClient(account_sid, auth_token)
     sms = client.sms.messages.get("SM800f449d0399ed014aae2bcc0cc2f2ec")
-    return sms.body
+    print sms.body
 
 @app.route('/')
 def index():
