@@ -8,7 +8,8 @@ app = Flask(__name__)
 @app.route('/_responder', methods=['GET','POST'])
 def responder():
     resp = twilio.twiml.Response()
-    message = request.values.get('Body')
+    #message = request.values.get('Body')
+    message = "Whats up"
     resp.message("Hello")
     return str(message)
 
