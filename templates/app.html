@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Running addToPlaylist</title>
+	</head>
+	<body>
+		<script src="https://www.rdio.com/api/api.js?helper=/static/helper.html&client_id=sGYQngWUORKHMSeH95T4jg">
+		</script>
+		<script>
+  			if(R.authenticated() == false){
+    			document.getElementById('access').style.visibility = 'visible';
+  			}
+  			R.ready(function() {
+  				R.request({
+  					method: "search",
+  					content: {
+   					query: "{{song}}",
+    				types: "Track",
+  					},
+  				success: function(response) {
+    				var trackKey = response.result["results"][0]["key"];
+    				console.log(trackKey);
+    				addSong(trackKey);
+  				},
+  				error: function(response) {
+    				console.log("error: " + response.message);
+  				}
+				});
+  			});
+  			function addSong(trackKey){
+  				console.log(trackKey);
+  				R.request({
+  					method: "addToPlaylist",
+  					content: {
+    				playlist: "p8696966",
+    				tracks: trackKey,
+  					}
+				});
+  			}
+		</script>
+		<h1>This is running</h1>
+	</body>
+</html>
