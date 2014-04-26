@@ -12,8 +12,6 @@ app = Flask(__name__)
 def responder():
     ec_r = requests.get("https://ACfe656ed49f19a12b8440cb191158f0c9:8d29d5cc81e4062e1521237983c39b21@api.twilio.com/2010-04-01/Accounts/ACfe656ed49f19a12b8440cb191158f0c9/SMS/Messages.json")
     data = json.loads(ec_r.text)
-    rdio = Rdio(("u35btmntr29vd3n9hnuy9m6n", "jb8DTyHpVf"))
-    auth_url = rdio.begin_authentication("oob")
     song = data['sms_messages'][0]['body']
     return render_template('app.html', song = song)
 
