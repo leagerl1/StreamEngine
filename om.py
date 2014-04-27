@@ -41,7 +41,7 @@ def om(consumer, url, post_params, token=None, method='POST', realm=None, timest
 
   # add OAuth params
   params.extend([
-    ('oauth_version', '1.0'),
+    ('oauth_version', '2.0'),
     ('oauth_timestamp', timestamp if timestamp is not None else str(int(time.time()))),
     ('oauth_nonce', nonce if nonce is not None else str(random.randint(0, 1000000))),
     ('oauth_signature_method', 'HMAC-SHA1'),
