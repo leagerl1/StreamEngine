@@ -26,10 +26,9 @@ def responder():
     ec_r = requests.get("https://ACfe656ed49f19a12b8440cb191158f0c9:8d29d5cc81e4062e1521237983c39b21@api.twilio.com/2010-04-01/Accounts/ACfe656ed49f19a12b8440cb191158f0c9/SMS/Messages.json")
     data = json.loads(ec_r.text)
     song = data['sms_messages'][0]['body']
-    render_index(song)
     resp = twilio.twiml.Response()
     resp.message("Your song will be added")
-    return str(resp)
+    return str(resp) +render_template('app.html',song=song)
 
 @app.route('/')
 def index():
