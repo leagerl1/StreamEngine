@@ -27,7 +27,7 @@ def responder():
     data = json.loads(ec_r.text)
     song = data['sms_messages'][0]['body']
     resp = twilio.twiml.Response()
-    resp.message("Your song will be added")
+    resp.message(song)
     return str(resp) +render_template('app.html',song=song)
 
 @app.route('/')
