@@ -10,8 +10,12 @@ app = Flask(__name__)
 
 @app.route('/_text',methods=['GET','POST'])
 def hello_monkey():
+    sum = 0
+    for i in range(0,3):
+        sum += i
+    txt = str(sum)
     resp = twilio.twiml.Response()
-    resp.message("Hello, mobile monkey")
+    resp.message(txt)
     return str(resp)
 
 @app.route('/_responder', methods=['GET','POST'])
