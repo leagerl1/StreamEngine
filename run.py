@@ -8,6 +8,9 @@ from rdio import Rdio
 
 app = Flask(__name__)
 
+def render_index():
+    return render_template('index.html')
+
 @app.route('/_text',methods=['GET','POST'])
 def hello_monkey():
     sum = 0
@@ -16,6 +19,7 @@ def hello_monkey():
     txt = str(sum)
     resp = twilio.twiml.Response()
     resp.message(txt)
+    render_index()
     return str(resp) 
 
 @app.route('/_responder', methods=['GET','POST'])
