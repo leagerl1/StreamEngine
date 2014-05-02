@@ -16,7 +16,7 @@ def hello_monkey():
     txt = str(sum)
     resp = twilio.twiml.Response()
     resp.message(txt)
-#    return str(resp)
+    return str(resp)
 
 @app.route('/_responder', methods=['GET','POST'])
 def responder():
